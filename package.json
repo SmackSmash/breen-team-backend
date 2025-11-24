@@ -2,9 +2,9 @@
   "name": "group-project-backend",
   "version": "1.0.0",
   "description": "The back-end for the group project",
-  "main": "index.js",
+  "main": "listen.ts",
   "scripts": {
-    "test": "jest",
+    "test": "vitest",
     "setup-dbs": "psql -f ./db/setup-dbs.sql"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "drizzle-kit": "^0.31.7",
     "jest": "^30.2.0",
     "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
     "tsx": "^4.20.6",
     "vitest": "^4.0.12"
   },

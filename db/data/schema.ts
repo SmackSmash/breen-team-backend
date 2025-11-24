@@ -1,6 +1,8 @@
-import { defineConfig } from 'drizzle-kit';
+import { pgTable, varchar, timestamp, serial } from 'drizzle-orm/pg-core';
 
-export default defineConfig({
-  dialect: 'postgresql',
-  schema: './db/schema.ts'
+export const usersTable = pgTable('users', {
+  user_id: serial().primaryKey().notNull(),
+  username: varchar().notNull(),
+  created_on: timestamp().defaultNow().notNull()
 });
+
