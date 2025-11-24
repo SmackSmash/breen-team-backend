@@ -1,9 +1,7 @@
 import userData from './userData';
-import scoreData from './scoreData'
-import gameData from './gameData';
+// import scoreData from './scoreData';
 
 export default {
   userData,
-  scoreData,
-  gameData
-}; 
+  // scoreData
+};
