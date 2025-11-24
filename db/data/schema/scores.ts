@@ -1,14 +1,20 @@
-const { pgTable, integer, varchar, int, timestamp } = require('drizzle-orm/pg-core');
-const users = require("./users")
-const games = require("./games")
+import { pgTable, integer, varchar, timestamp } from 'drizzle-orm/pg-core';
+import users from './users';
+import games from './games';
 
- const scores = pgTable('scores', {
+const scores = pgTable('scores', {
   score_id: integer().primaryKey().notNull(),
-  score: int().notNull(),
-  user_id: int().refernces(()=>users.user_id).notNull(),
-  username: varchar().notNull().refernces(()=>users.username),
-  game_id: int().notNull().refernces(()=>games.game_id),
+  score: integer().notNull(),
+  user_id: integer()
+    .references(() => users.user_id)
+    .notNull(),
+  username: varchar()
+    .notNull()
+    .references(() => users.username),
+  game_id: integer()
+    .notNull()
+    .references(() => games.game_id),
   created_on: timestamp().defaultNow().notNull()
 });
 
-module.exports = scores
+export default scores;

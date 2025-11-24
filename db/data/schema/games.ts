@@ -1,8 +1,8 @@
-import { pgTable, integer, varchar} from "drizzle-orm/pg-core"
+import { pgTable, integer, varchar } from 'drizzle-orm/pg-core';
 
- const games = pgTable('games', {
-  id: integer().primaryKey().notNull(),
+const games = pgTable('games', {
+  game_id: integer().primaryKey().notNull(),
   name: varchar().notNull()
 });
 
-module.exports = games
+export default games;
