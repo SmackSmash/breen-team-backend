@@ -8,5 +8,5 @@ export const games = pgTable('games', {
 });
 
 export const gamesRelations = relations(games, ({ many }) => ({
-  scores: many(scores),
+  scores: many(scores)
 }));

@@ -1,10 +1,10 @@
-import { pgTable, integer, varchar, timestamp } from 'drizzle-orm/pg-core';
+import { pgTable, integer, varchar, timestamp, serial } from 'drizzle-orm/pg-core';
 import { users } from './users';
 import { games } from './games';
 import { relations } from 'drizzle-orm';
 
 export const scores = pgTable('scores', {
-  score_id: integer('score_id').primaryKey().notNull(),
+  score_id: serial('score_id').primaryKey().notNull(),
   score: integer('score').notNull(),
   user_id: integer('user_id')
     .notNull()
@@ -21,12 +21,10 @@ export const scores = pgTable('scores', {
 export const scoresRelations = relations(scores, ({ one }) => ({
   user: one(users, {
     fields: [scores.username],
-    references: [users.username],
+    references: [users.username]
   }),
   game: one(games, {
     fields: [scores.game_id],
-    references: [games.game_id],
-  }),
+    references: [games.game_id]
+  })
 }));
-
-
