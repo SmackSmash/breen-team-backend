@@ -34,13 +34,13 @@ describe('Seed users table', () => {
       });
   });
 });
-  test('Should check that the scores table has a column referenced to the users table', () => {
-    return db
-      .select()
-      .from(scores)
-      .then(scores => {
-        scores.forEach( score => {
-          expect(score).toHaveProperty('username');
-        });
+test('Should check that the scores table has a column referenced to the users table', () => {
+  return db
+    .select()
+    .from(scores)
+    .then(scores => {
+      scores.forEach(score => {
+        expect(score).toHaveProperty('username');
       });
-  });
+    });
+});
