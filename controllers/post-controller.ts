@@ -6,5 +6,5 @@ export const postUser = (req: Request, res: Response) => {
 
     return createUser(username).then(user => {
         return res.status(201).send({ user: user[0] })
-    }).catch(err => console.log(err))
+    })
 };
