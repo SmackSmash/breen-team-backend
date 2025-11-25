@@ -44,6 +44,17 @@ describe('Data Insertion for user table', () => {
   });
 });
 
+test('Should check that the scores table has a column referenced to the users table', () => {
+  return db
+    .select()
+    .from(scores)
+    .then(scores => {
+      scores.forEach(score => {
+        expect(score).toHaveProperty('username');
+      });
+    });
+
+
 describe('Data insertion for scores table', () => {
   test('Should check that the scores table has the correct columns', () => {
     return db
