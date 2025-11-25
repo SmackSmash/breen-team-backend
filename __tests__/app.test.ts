@@ -70,7 +70,33 @@ describe('GET', () => {
   })
 });
 
+describe('POST', () => {
+  describe('POST /users', () => {
+    test('POST user to the database', async () => {
+      const newUser = {
+        user_id: 11,
+        username: 'Gilson',
+        created_on: 213123123
+      }
 
+      return request(app)
+        .post('/api/users')
+        .send(newUser)
+        .expect(201)
+        .then(({ body }) => {
+          const { user } = body;
+          console.log(user)
+          expect(user).toHaveProperty("user_id");
+          expect(user).toHaveProperty("username");
+          expect(user).toHaveProperty("created_on");
+          expect(typeof user).toBe("object");
+          expect(typeof user.user_id).toBe("number");
+          expect(typeof user.username).toBe("string");
+          expect(typeof user.created_on).toBe("string");
+        })
+    })
+  })
+});
 
 
 describe('DELETE', () => {
