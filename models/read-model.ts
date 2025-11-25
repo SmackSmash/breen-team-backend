@@ -15,8 +15,23 @@ export const readUser = async (user_id: string) => {
     .where(sql`${users.user_id} = ${user_id}`);
 };
 
-export const readScores = async () => {
-  const dbScore = await db.select().from(scores).orderBy(desc(scores.score));
+export const readScores = async (page: number) => {
+  const limit = 10;
 
-  return { scores: dbScore };
+  const dbScores = await db.select().from(scores).orderBy(desc(scores.score));
+
+  const paginatedScores = dbScores.reduce(
+    (acc, cur) => {
+      const currentPage = Object.keys(acc).length;
+      if (acc[currentPage].length < limit) {
+        acc[currentPage].push(cur);
+      } else {
+        acc[currentPage + 1] = [cur];
+      }
+      return acc;
+    },
+    { 1: [] }
+  );
+
+  return { scores: paginatedScores[page], page: page };
 };

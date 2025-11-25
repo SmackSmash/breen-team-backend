@@ -1,6 +1,6 @@
 import { Response, Request } from 'express';
 import { readUser, readUsers } from '../models/read-model';
-import { readScores } from '../models/read-model';
+import { readScores } from '../models/index';
 
 export const getUsers = (req: Request, res: Response) => {
   return readUsers().then(users => {
@@ -16,8 +16,11 @@ export const getUser = (req: Request, res: Response) => {
   });
 };
 
-export const getScores = (req: Request, res: Response) => {
-  return readScores().then(scores => {
-    res.send(scores);
-  });
+export const getScores = async (req: Request, res: Response) => {
+  const { p } = req.query;
+  const page = Number(p);
+
+  const scores = await readScores(page || 1);
+
+  res.send(scores);
 };

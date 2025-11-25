@@ -4,6 +4,7 @@ import { getScores } from './controllers';
 import { getUser, getUsers } from './controllers/get-controller';
 import { deleteUserId } from './controllers/delete-controller';
 import { postUser } from './controllers/post-controller';
+import { getScores, postScore } from './controllers';
 
 const app = express();
 
