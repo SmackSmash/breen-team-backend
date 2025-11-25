@@ -4,15 +4,15 @@ import { readScores } from '../models/index';
 
 export const getUsers = (req: Request, res: Response) => {
   return readUsers().then(users => {
-    res.status(200).send({ msg: users[0] });
+    return res.status(200).send(users)
   });
 };
 
 export const getUser = (req: Request, res: Response) => {
-  const article_id = req.params.user_id;
+  const user_id = req.params.user_id;
 
-  return readUser(article_id).then(users => {
-    res.status(200).send({ msg: users[0] });
+  return readUser(user_id).then(user => {
+    res.status(200).send({ user: user[0] });
   });
 };
 
