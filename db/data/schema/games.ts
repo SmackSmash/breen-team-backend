@@ -1,6 +1,6 @@
 import { relations } from 'drizzle-orm';
 import { pgTable, serial, varchar } from 'drizzle-orm/pg-core';
-import { scores } from './scores.js';
+import { scores } from './scores';
 
 export const games = pgTable('games', {
   game_id: serial('game_id').primaryKey().notNull(),

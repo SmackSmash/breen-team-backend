@@ -1,5 +1,5 @@
 import { Response, Request } from "express"
-import { deleteUser } from "../models/delete-model.js"
+import { deleteUser } from "../models"
 
 export const deleteUserId = async (req: Request, res: Response) => {
     const user_id = req.params.user_id

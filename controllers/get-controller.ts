@@ -1,6 +1,6 @@
 import { Response, Request } from 'express';
-import { readUser, readUsers } from '../models/read-model.js';
-import { readScores } from '../models/index.js';
+import { readUser, readUsers } from '../models/read-model';
+import { readScores } from '../models/index';
 
 export const getUsers = async (req: Request, res: Response) => {
   const users = await readUsers()

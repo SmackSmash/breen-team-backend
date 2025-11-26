@@ -1,6 +1,6 @@
-import usersData from './usersData.js';
-import scoresData from './scoresData.js';
-import gamesData from './gamesData.js';
+import usersData from './usersData';
+import scoresData from './scoresData';
+import gamesData from './gamesData';
 
 export const data = {
   usersData,
