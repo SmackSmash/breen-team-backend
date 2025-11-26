@@ -6,7 +6,5 @@ export const postScore = async (req: Request, res: Response) => {
 
   const [resScore] = await createScore(score, user_id, username, game_id);
 
-  console.log(resScore);
-
   return res.status(201).send({ score: resScore });
 };

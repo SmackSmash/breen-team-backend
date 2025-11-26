@@ -11,4 +11,8 @@ app.get('/api/scores', getScores);
 
 app.post('/api/scores', postScore);
 
+app.use((err, req, res, next) => {
+  console.log(err);
+});
+
 export default app;
