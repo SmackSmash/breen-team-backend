@@ -1,6 +1,6 @@
-import usersData from './usersData';
-import gamesData from './gamesData';
-import scoresData from './scoresData';
+import usersData from './usersData.js';
+import gamesData from './gamesData.js';
+import scoresData from './scoresData.js';
 
 export default {
   usersData,

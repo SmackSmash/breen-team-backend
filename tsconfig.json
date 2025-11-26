@@ -2,8 +2,9 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
     "target": "esnext",
     "types": ["node"],
     "sourceMap": true,
@@ -17,8 +18,9 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts" ],
   "exclude": ["__tests__"]
 }
