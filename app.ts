@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import { getUser, getUsers } from './controllers/get-controller';
-import { deleteUserId } from './controllers/delete-controller';
-import { postUser } from './controllers/post-controller';
-import { getScores, postScore } from './controllers';
+import { getUser, getUsers } from './controllers/get-controller.js';
+import { deleteUserId } from './controllers/delete-controller.js';
+import { postUser } from './controllers/post-controller.js';
+import { getScores, postScore } from './controllers/index.js';
 
 const app = express();
 

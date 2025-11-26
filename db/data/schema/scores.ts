@@ -1,6 +1,6 @@
 import { pgTable, integer, varchar, timestamp, serial } from 'drizzle-orm/pg-core';
-import { users } from './users';
-import { games } from './games';
+import { users } from './users.js';
+import { games } from './games.js';
 import { relations } from 'drizzle-orm';
 
 export const scores = pgTable('scores', {

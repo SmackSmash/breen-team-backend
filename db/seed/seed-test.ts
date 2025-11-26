@@ -1,7 +1,7 @@
-import db from '../connection';
-import { users } from '../data/schema/users';
-import { scores } from '../data/schema/scores';
-import { games } from '../data/schema/games';
+import db from '../connection.js';
+import { users } from '../data/schema/users.js';
+import { scores } from '../data/schema/scores.js';
+import { games } from '../data/schema/games.js';
 import { seed } from 'drizzle-seed';
 
 async function seedTable(count?: number) {
