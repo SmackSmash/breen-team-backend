@@ -4,7 +4,7 @@ import { scores } from '../data/schema/scores';
 import { games } from '../data/schema/games';
 
 async function dropTable() {
-  await db.delete(users);
+  await db.delete(users)
   await db.delete(scores);
   await db.delete(games);
 }

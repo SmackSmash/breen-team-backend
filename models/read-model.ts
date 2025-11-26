@@ -1,4 +1,4 @@
-import { sql } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 import db from '../db/connection';
 import { users } from '../db/data/schema/users';
 import { scores } from '../db/data/schema/scores';
@@ -8,11 +8,11 @@ export const readUsers = async () => {
   return await db.select().from(users);
 };
 
-export const readUser = async (user_id: string) => {
+export const readUser = async (user_id: number) => {
   return await db
     .select()
     .from(users)
-    .where(sql`${users.user_id} = ${user_id}`);
+    .where(eq(users.user_id, user_id));
 };
 
 export const readScores = async (page: number) => {
