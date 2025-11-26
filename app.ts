@@ -11,15 +11,18 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/api/users', getUsers);
+
 app.get('/api/users/:user_id', getUser);
-app.get('/api/scores', getScores);
+
+app.get('/api/games/:gameid/scores', getScores);
 
 app.post('/api/games/:gameid/scores', postScore);
+
+app.post('/api/users', postUser);
+
+app.delete('/api/users/:user_id', deleteUserId);
 
 app.use((err, req, res, next) => {
   console.log(err);
 });
-app.post('/api/users', postUser)
-
-app.delete('/api/users/:user_id', deleteUserId);
 export default app;

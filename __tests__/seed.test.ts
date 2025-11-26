@@ -4,7 +4,7 @@ import { scores } from '../db/data/schema/scores';
 import { games } from '../db/data/schema/games';
 import matchers from 'jest-extended';
 import db from '../db/connection';
-import seedTable from '../db/seed/seed';
+import seedTable from '../db/seed/seed-test';
 import dropTable from '../db/seed/drop';
 
 expect.extend(matchers);

@@ -20,19 +20,25 @@ jest-extended
 
 ## Dev Setup
 
-1. Set up databases through through psql command in npm script
+1. Run npm install
+
+```
+npm install
+```
+
+2. Set up databases through through psql command in npm script
 
 ```
 npm run setup-dbs
 ```
 
-2. Create .env.development inside the /db folder and set DATABASE_URL in the files.
+3. Create .env.development inside the /db folder and set DATABASE_URL in the files.
 
 ```
 DATABASE_URL=postgresql://{username}:{password}@localhost/breen_server
 ```
 
-3. Push the schemas to create tables through drizzle-kit
+4. Push the schemas to create tables through drizzle-kit
 
 ```
 
@@ -42,19 +48,25 @@ npm run push-dev
 
 ## Test Setup
 
-1. Set up the databases through psql command in npm script if you it's not done as above
+1. run npm install
+
+```
+npm install
+```
+
+2. Set up the databases through psql command in npm script if you it's not done as above
 
 ```
 npm run setup-dbs
 ```
 
-2. Create .env.test inside the /db folder and set DATABASE_URL in the files.
+3. Create .env.test inside the /db folder and set DATABASE_URL in the files.
 
 ```
 DATABASE_URL=postgresql://{username}:{password}@localhost/breen_server_test
 ```
 
-3. Push the schemas to create tables through drizzle-kit
+4. Push the schemas to create tables through drizzle-kit
 
 ```
 
