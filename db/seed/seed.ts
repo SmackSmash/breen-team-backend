@@ -1,11 +1,10 @@
-import db from '../connection';
 import { users } from '../data/schema/users';
-import { scores } from '../data/schema/scores';
 import { games } from '../data/schema/games';
-import { seed } from 'drizzle-seed';
+import { scores } from '../data/schema/scores';
+import db from '../connection';
 
-async function seedTable(count?: number) {
-  await seed(db, { users, scores, games }, { count: count || 10 });
-}
-
-export default seedTable;
+export const seed = async ({ usersData, scoresData, gamesData }) => {
+  await db.insert(users).values(usersData);
+  await db.insert(games).values(gamesData);
+  await db.insert(scores).values(scoresData);
+};
