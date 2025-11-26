@@ -2,18 +2,19 @@ import { Response, Request } from 'express';
 import { readUser, readUsers } from '../models/read-model';
 import { readScores } from '../models/index';
 
-export const getUsers = (req: Request, res: Response) => {
-  return readUsers().then(users => {
-    res.status(200).send({ msg: users[0] });
-  });
+export const getUsers = async (req: Request, res: Response) => {
+  const users = await readUsers()
+
+  return res.send(users)
 };
 
-export const getUser = (req: Request, res: Response) => {
-  const article_id = req.params.user_id;
+export const getUser = async (req: Request, res: Response) => {
+  const user_id = req.params.user_id;
+  const convertedUserIdToNumber = Number(user_id)
 
-  return readUser(article_id).then(users => {
-    res.status(200).send({ msg: users[0] });
-  });
+  const user = await readUser(convertedUserIdToNumber)
+
+  return res.send({ user: user[0] });
 };
 
 export const getScores = async (req: Request, res: Response) => {
