@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.get('/api/scores', getScores);
 
-app.post('/api/scores', postScore);
+app.post('/api/games/:gameid/scores', postScore);
 
 app.use((err, req, res, next) => {
   console.log(err);

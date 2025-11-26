@@ -1,7 +1,6 @@
 import app from '../app';
 import * as matchers from 'jest-extended';
 import { beforeAll, afterAll, describe, test, expect } from 'vitest';
-import db from '../db/connection';
 import request from 'supertest';
 import { seedAPI } from '../db/seed/seedAPI';
 import dropTable from '../db/seed/drop';
@@ -12,7 +11,6 @@ expect.extend(matchers);
 beforeAll(() => seedAPI(data));
 afterAll(async () => {
   await dropTable();
-  await db.$client.end();
 });
 
 describe('POST', () => {
@@ -21,13 +19,12 @@ describe('POST', () => {
       const testScore = {
         score: 100,
         user_id: 1,
-        username: 'testUser1',
-        game_id: 1
+        username: 'testUser1'
       };
 
       const {
         body: { score }
-      } = await request(app).post('/api/scores').send(testScore).expect(201);
+      } = await request(app).post('/api/games/1/scores').send(testScore).expect(201);
 
       expect(score.score).toBe(100);
       expect(score.user_id).toBe(1);
