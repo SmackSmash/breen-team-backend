@@ -1,4 +1,4 @@
-import { getScores } from './get-controller';
-import { postScore } from './post-controller';
+import { getScores, getUsers, getUser } from './get-controller';
+import { postScore, postUser } from './post-controller';
 
-export { getScores, postScore };
+export { getScores, postScore, getUser, getUsers, postUser };
