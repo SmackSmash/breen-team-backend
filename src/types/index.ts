@@ -7,6 +7,8 @@ export type ScoresType = {
 
 export type usersType = {
   username: string;
+  user_id: number;
+  created_on: string;
 }[];
 
 export type gamesType = {
@@ -18,5 +20,5 @@ export type Score = {
   user_id: number;
   username: string;
   game_id: number;
-  created_on:string;
+  created_on: string;
 };

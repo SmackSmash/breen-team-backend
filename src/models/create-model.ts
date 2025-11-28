@@ -12,8 +12,6 @@ export const createScore = async (
   username: string,
   game_id: number
 ) => {
-  return await db
-    .insert(scores)
-    .values({ score: score, user_id: user_id, username: username, game_id: game_id })
-    .returning();
+  console.log(score, user_id, username, game_id);
+  return await db.insert(scores).values({ score, user_id, username, game_id }).returning();
 };

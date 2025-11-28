@@ -1,5 +1,6 @@
 import { Response, Request } from 'express';
 import { createUser } from '../models/create-model.js';
+import { readUserByUsername } from '../models/read-model.js';
 import { createScore } from '../models/index.js';
 
 export const postUser = async (req: Request, res: Response) => {
@@ -11,11 +12,17 @@ export const postUser = async (req: Request, res: Response) => {
 };
 
 export const postScore = async (req: Request, res: Response) => {
-  const { score, user_id, username } = req.body;
+  const { score, username } = req.body;
   const { gameid } = req.params;
   const game_id = Number(gameid);
 
-  const [resScore] = await createScore(score, user_id, username, game_id);
+  let user = await readUserByUsername(username);
+
+  if (!user.length) {
+    user = await createUser(username);
+  }
+
+  const [resScore] = await createScore(Number(score), user[0].user_id, username, game_id);
 
   return res.status(201).send({ score: resScore });
 };

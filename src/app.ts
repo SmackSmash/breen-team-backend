@@ -1,7 +1,7 @@
 import express from 'express';
 import { Response, Request, NextFunction } from 'express';
 import cors from 'cors';
-import { getUser, getUsers } from './controllers/get-controller.js';
+import { getUserById, getUsers } from './controllers/get-controller.js';
 import { deleteUserId } from './controllers/delete-controller.js';
 import { postUser } from './controllers/post-controller.js';
 import { getScores, postScore } from './controllers/index.js';
@@ -15,7 +15,7 @@ app.get('/api', express.static('public'));
 
 app.get('/api/users', getUsers);
 
-app.get('/api/users/:user_id', getUser);
+app.get('/api/users/:user_id', getUserById);
 
 app.get('/api/games/:gameid/scores', getScores);
 
